@@ -229,6 +229,14 @@ Unit of C<$current_time> is ms. The subroutine will return instance of KCP.
 
   ...
 
+=head2 flush
+
+Extension for C<ikcp_flush>.
+
+Flush immediately pending data. The subroutine will return instance of KCP.
+
+  $kcp->flush;
+
 =head2 send( $data )
 
 Extension for C<ikcp_send()>.
@@ -264,6 +272,8 @@ Push C<$data> of transport layer to KCP. Return undef if has error occur.
 
 =head2 get_conv( [$data] )
 
+Extension for C<ikcp_getconv()>.
+
 Get conversation ID of the KCP instance if C<$data> isn't be given.
 Otherwise Pick-up conversation ID from C<$data>.
 
@@ -284,6 +294,83 @@ or
 Get interval of the KCP instance.
 
   my $interval = $kcp->get_interval;
+
+=head2 peeksize
+
+Extension for C<ikcp_peeksize()>.
+
+Peek the size of next user message and return.
+
+  my $n = $kcp->peeksize;
+  if ($n < $expect_max_size)
+  {
+      ...
+
+      $kcp->recv($data, $expect_max_size);
+
+      ...
+  }
+
+=head2 mtu( [$mtu] )
+
+Extension for C<ikcp_setmtu()>.
+
+Get MTU of the KCP instance if C<mtu> isn't be given, 
+Otherwise set MTU to C<$mtu> and return old MTU. The default is 1400.
+
+Get MTU:
+
+  my $mtu = $kcp->mtu;
+
+or set MTU:
+
+  my $old_mtu = $kcp->mtu(1500);
+
+Throw a exception if C<$mtu> of given is invalid.
+
+=head2 sndwnd( [$window_size] )
+
+Extension for C<ikcp_wndsize()>.
+
+Get send window size of the KCP instance if C<window_size> isn't be given, 
+Otherwise set send window size to C<$window_size> and return old window size.
+The default is 32.
+
+Get send window size:
+
+  my $sndwnd = $kcp->sndwnd;
+
+or set send window size:
+
+  my $old_sndwnd = $kcp->sndwnd(64);
+
+=head2 rcvwnd( [$window_size] )
+
+Extension for C<ikcp_wndsize()>.
+
+Get receive window size of the KCP instance if C<windows_size> isn't be given, 
+Otherwise set receive window size to C<$window_size> and return old window size.
+The default is 128.
+
+Get receive window size:
+
+  my $rcvwnd = $kcp->rcvwnd;
+
+or set receive window size:
+
+  my $old_rcvwnd = $kcp->rcvwnd(64);
+
+=head2 get_waitsnd
+
+Extension for C<ikcp_waitsnd()>.
+
+Gets the number of packages to be sent.
+
+  if ($max_wait_num < $kcp->waitsnd)
+  {
+      // to close the session, maybe.
+  }
+
 
 =head1 SEE ALSO
 

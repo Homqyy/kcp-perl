@@ -125,7 +125,7 @@ int
 ikcp_recv(kcp_t *kcp, SV *data, int len)
   CODE:
     if (len <= 0) XSRETURN_UNDEF;
-    
+
     char buffer[len];
     RETVAL = ikcp_recv(kcp->ikcp, buffer, len);
 
@@ -178,6 +178,74 @@ ikcp_update(kcp_t *kcp, long current)
     ikcp_update(kcp->ikcp, current);
 
     RETVAL = SvREFCNT_inc(ST(0));
+
+  OUTPUT:
+    RETVAL
+
+SV *
+ikcp_flush(kcp_t *kcp)
+  CODE:
+    ikcp_flush(kcp->ikcp);
+
+    RETVAL = SvREFCNT_inc(ST(0));
+
+  OUTPUT:
+    RETVAL
+
+IUINT32
+ikcp_mtu(kcp_t *kcp, int mtu = 0)
+  INIT:
+    IUINT32 old_mtu = kcp->ikcp->mtu;
+
+  CODE:
+    if (mtu != 0)
+    {
+        int ret = ikcp_setmtu(kcp->ikcp, mtu);
+
+        if (ret < 0) croak("KCP::mtu: invalid mtu");
+    }
+
+    RETVAL = old_mtu;
+
+  OUTPUT:
+    RETVAL
+
+IUINT32
+ikcp_sndwnd(kcp_t *kcp, int sndwnd = 0)
+  INIT:
+    IUINT32 old_wnd = kcp->ikcp->snd_wnd;
+
+  CODE:
+    if (sndwnd != 0)
+    {
+        ikcp_wndsize(kcp->ikcp, sndwnd, kcp->ikcp->rcv_wnd);
+    }
+
+    RETVAL = old_wnd;
+
+  OUTPUT:
+    RETVAL
+
+IUINT32
+ikcp_rcvwnd(kcp_t *kcp, int rcvwnd = 0)
+  INIT:
+    IUINT32 old_wnd = kcp->ikcp->rcv_wnd;
+
+  CODE:
+    if (rcvwnd != 0)
+    {
+        ikcp_wndsize(kcp->ikcp, kcp->ikcp->snd_wnd, rcvwnd);
+    }
+
+    RETVAL = old_wnd;
+
+  OUTPUT:
+    RETVAL
+
+int
+ikcp_get_waitsnd(kcp_t *kcp)
+  CODE:
+    RETVAL = ikcp_waitsnd(kcp->ikcp);
 
   OUTPUT:
     RETVAL
@@ -306,6 +374,14 @@ ikcp_nodelay(kcp_t *kcp, ...)
     ikcp_nodelay(kcp->ikcp, nodelay, interval, resend, nc);
 
     RETVAL = SvREFCNT_inc(ST(0));
+
+  OUTPUT:
+    RETVAL
+
+int
+peeksize(kcp_t *kcp)
+  CODE:
+    RETVAL = ikcp_peeksize(kcp->ikcp);
 
   OUTPUT:
     RETVAL
