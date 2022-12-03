@@ -24,11 +24,8 @@ _output(const char *buf, int len, ikcpcb *ikcp, void *user)
 {
     kcp_t *kcp = (kcp_t *)user;
 
-    printf("in _output\n");
-
     if (kcp->output)
     {
-        printf("_output: %d bytes (%p)\n", len, buf);
         dSP;
 
         ENTER;
@@ -389,8 +386,6 @@ peeksize(kcp_t *kcp)
 void
 ikcp_DESTROY(kcp_t *kcp)
   CODE:
-    printf("in KCP::Destroy\n");
-
     if (kcp->output)  sv_2mortal(kcp->output);
 
     if (kcp->user)    sv_2mortal(kcp->user);
