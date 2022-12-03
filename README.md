@@ -6,6 +6,7 @@
 
 ### 1.1 目录结构
 
+```
 perl-kcp
 ├── build.sh                    # 构建脚本
 ├── Dockerfile.dev              # 开发容器的配置文件
@@ -24,6 +25,7 @@ perl-kcp
 ├── kcp-src                     # “skywind3000/kcp” 源码
 ├── LICENSE
 └── README.md
+```
 
 ---
 
