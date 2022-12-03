@@ -48,6 +48,13 @@ KCP - Perl extension for skywind3000/kcp
 
   use KCP;
 
+  sub output
+  {
+      my ($data, $user) = @_;
+
+      $user->{socket}->send($data, 0);
+  }
+
   ...
 
   my $kcp = KCP::new($conv, $user);
@@ -62,17 +69,25 @@ KCP - Perl extension for skywind3000/kcp
 
   ...
 
-  # to send $data
+  # to send user data
 
   $kcp->send($data);
-    or print "send error\n";
   
   ...
 
-  # to recv data
+  # to recv user data
 
-  $kcp->recv($data)
-    or print "recv error\n";
+  $kcp->recv($data, 65536);
+
+  ...
+
+  # input data of transport
+
+  $socket->recv($data, 65536, 0);
+
+  $kcp->input($data, 65536);
+
+  ...
 
 =head1 DESCRIPTION
 
