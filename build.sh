@@ -73,6 +73,8 @@ function install
     echo "install..."
 
     make -C ${G_PERL_KCP_DIR} install
+
+    make -C ${G_KCP_BUILD_DIR} install
 }
 
 function clean
