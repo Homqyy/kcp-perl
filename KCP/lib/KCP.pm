@@ -233,12 +233,23 @@ Unit of C<$current_time> is ms. The subroutine will return instance of KCP.
 
 Extension for C<ikcp_send()>.
 
-Push C<$data> of user to KCP. Return undef if has error occur.
+Send C<$data> of user to KCP. Return undef if has error occur.
 
-  $kcp->send($data)
-    or return undef; # error
+  unless ($kcp->send($data))
+  {
+      // for error
+  }
 
-=head2 recv( $data )
+=head2 recv( $data, $len )
+
+Extension for C<ikcp_recv>.
+
+Receive data of user to C<$data>. Return undef for EAGAIN.
+
+  unless ($kcp->recv($data))
+  {
+      // for EAGAIN...
+  }
 
 =head2 input( $data )
 

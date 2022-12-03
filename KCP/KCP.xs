@@ -122,6 +122,23 @@ ikcp_input(kcp_t *kcp, SV *data)
     RETVAL
 
 int
+ikcp_recv(kcp_t *kcp, SV *data, int len)
+  CODE:
+    if (len <= 0) XSRETURN_UNDEF;
+    
+    char buffer[len];
+    RETVAL = ikcp_recv(kcp->ikcp, buffer, len);
+
+  POSTCALL:
+    if (RETVAL < 0) XSRETURN_UNDEF;
+
+    sv_setpvn(data, buffer, RETVAL);
+
+  OUTPUT:
+    RETVAL
+    data
+
+int
 ikcp_send(kcp_t *kcp, SV *data)
   CODE:
     char *buffer;
@@ -136,7 +153,7 @@ ikcp_send(kcp_t *kcp, SV *data)
   POSTCALL:
     if (RETVAL < 0) XSRETURN_UNDEF;
 
-    RETVAL = 1;
+    RETVAL = len;
 
   OUTPUT:
     RETVAL
