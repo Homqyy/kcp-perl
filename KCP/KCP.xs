@@ -111,7 +111,7 @@ ikcp_input(kcp_t *kcp, SV *data)
 
     buffer = SvPV(data, len);
 
-    RETVAL = ikcp_input(kcp->ikcp, buffer, len)
+    RETVAL = ikcp_input(kcp->ikcp, buffer, len);
 
   POSTCALL:
     if (RETVAL < 0) XSRETURN_UNDEF;
