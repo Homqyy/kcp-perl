@@ -37,7 +37,7 @@ function configure
 {
     echo "configure..."
 
-    cmake -B ${G_KCP_BUILD_DIR} -S ${G_KCP_SRC_DIR} \
+    cmake -B ${G_KCP_BUILD_DIR} -S ${G_KCP_SRC_DIR} -D BUILD_SHARED_LIBS=ON \
         || return 1
 
     # for kcp module
