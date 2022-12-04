@@ -26,7 +26,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw(
 );
 
-our $VERSION = '0.01';
+our $VERSION = '0.03';
 
 require XSLoader;
 XSLoader::load('KCP', $VERSION);
@@ -39,10 +39,6 @@ __END__
 =head1 NAME
 
 KCP - Perl extension for skywind3000/kcp
-
-=head1 VERSION
-
- v0.01
 
 =head1 SYNOPSIS
 
