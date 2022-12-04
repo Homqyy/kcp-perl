@@ -1,8 +1,8 @@
-# perl-kcp
+# kcp-perl
 
 ## 1 概要
 
-- `perl-kcp`是一个扩展“[skywind3000/kcp](https://github.com/skywind3000/kcp)”的一个面向对象的Perl模块，在安装的时候内置了KCP的库。
+- `kcp-perl`是一个扩展“[skywind3000/kcp项目](https://github.com/skywind3000/kcp)”的面向对象的Perl模块，如果是用该源码构建，安装的时候会顺便安装最新编译成功的KCP库和头文件（`libkcp.so`和`ikcp.h`）。
 
 - 该项目有如下几个特点：
     - 友好性：
@@ -10,7 +10,7 @@
         - 面向对象的
     - 可靠性：有配套的测试脚本
     - 实时性：基于最新的KCP项目源码构建
-    - 便利性：可以用`cpan`工具直接获取项目
+    - 便利性：可以用`cpan`工具直接获取发行版本
 
 ### 1.1 目录结构
 
@@ -48,11 +48,13 @@ perl-kcp
 
     make && make install
     ```
-2.  通过`cpan`工具获取`perl-kcp`
+2.  通过`cpan`工具安装`kcp-perl`发行包：
+    - 安装最新版本：`cpan -i KCP`
+    - 安装指定版本：`cpan -i HOMQYY/KCP-0.03.tar.gz`
 
-```
-cpan -i HOMQYY/KCP-0.03.tar.gz
-```
+### 1.3 在线帮助手册
+
+- [KCP-0.03](https://metacpan.org/release/HOMQYY/KCP-0.03/view/lib/KCP.pm)
 
 ---
 
