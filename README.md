@@ -16,6 +16,8 @@
 ```
 perl-kcp
 ├── build.sh                    # 构建脚本
+├── Changes                     # 版本说明
+├── Dockerfile.dev              # 开发容器的配置文件
 ├── Dockerfile.dev              # 开发容器的配置文件
 ├── KCP                         # 扩展KCP的Perl模块
 │   ├── Changes
@@ -29,9 +31,27 @@ perl-kcp
 │   ├── ppport.h
 │   ├── t                       # 测试脚本目录
 │   └── typemap
-├── kcp-src                     # “skywind3000/kcp” 源码
+├── kcp-src                     # 子模块，关联到 “skywind3000/kcp 项目
 ├── LICENSE
 └── README.md
+```
+
+### 1.2 快速获取
+
+1. 安装`libkcp.so`和`ikcp.h`到系统中。
+    - 如果编译KCP项目源码，可参考以下命令：
+
+    ```
+    cmake -B ./build -S . -D BUILD_SHARED_LIBS=ON
+
+    cd build
+
+    make && make install
+    ```
+2.  通过`cpan`工具获取`perl-kcp`
+
+```
+cpan -i HOMQYY/KCP-0.03.tar.gz
 ```
 
 ---
@@ -48,6 +68,12 @@ perl-kcp
 yum install -y cpan
 ```
 
+2. perl-Test-Simple（测试需要）
+
+```
+yum install -y perl-Test-Simple
+```
+
 ### 2.2 Perl模块
 
 1. Devel::PPPort
@@ -56,7 +82,7 @@ yum install -y cpan
 cpan -i Devel::PPPort
 ```
 
-2. Test::More
+2. Test::More（测试需要）
 
 ```
 cpan -i Test::More
