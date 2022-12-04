@@ -19,7 +19,6 @@ perl-kcp
 ├── build.sh                    # 构建脚本
 ├── Changes                     # 版本说明
 ├── Dockerfile.dev              # 开发容器的配置文件
-├── Dockerfile.dev              # 开发容器的配置文件
 ├── KCP                         # 扩展KCP的Perl模块
 │   ├── Changes
 │   ├── KCP.xs
