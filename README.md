@@ -1,8 +1,10 @@
 # kcp-perl
 
+[TOC]
+
 ## 1 概要
 
-- `kcp-perl`是一个扩展“[skywind3000/kcp项目](https://github.com/skywind3000/kcp)”的面向对象的Perl模块。
+- `kcp-perl`是一个扩展“[skywind3000/kcp项目](https://github.com/skywind3000/kcp)”的Perl模块，且该模块是面向对象的。
 
 - 该项目有如下几个特点：
     - 友好性：
@@ -177,11 +179,3 @@ git submodule update
 
     ...
     ```
-
----
-
-## 5 配置
-
-- 通过环境变量进行配置，支持的环境变量有：
-    - KCP_INC_DIR
-    - KCP_LIB
