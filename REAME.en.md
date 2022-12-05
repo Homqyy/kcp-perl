@@ -117,25 +117,25 @@ Next, to start building
 
 ### 3.2 Building by step
 
-- 配置
+- Configure
 
     ```
     ./build.sh configure
     ```
 
-- 编译
+- Compile
 
     ```
     ./build.sh compile
     ```
 
-- 测试
+- Test
 
     ```
     ./build.sh test
     ```
 
-- 安装
+- Install
 
     ```
     ./build.sh install
