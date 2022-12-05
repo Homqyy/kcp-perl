@@ -5,3 +5,4 @@
 
 0.04 2022/12/05
     - 适配 KCP.pm的0.04版本：改用直接连接libkcp.a，而不是libkcp.so
+    - 更新README
