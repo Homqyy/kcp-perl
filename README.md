@@ -2,7 +2,7 @@
 
 ## 1 概要
 
-- `kcp-perl`是一个扩展“[skywind3000/kcp项目](https://github.com/skywind3000/kcp)”的面向对象的Perl模块，如果是用该源码构建，安装的时候会顺便安装最新编译成功的KCP库和头文件（`libkcp.so`和`ikcp.h`）。
+- `kcp-perl`是一个扩展“[skywind3000/kcp项目](https://github.com/skywind3000/kcp)”的面向对象的Perl模块。
 
 - 该项目有如下几个特点：
     - 友好性：
