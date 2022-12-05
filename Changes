@@ -1,4 +1,7 @@
 版本说明：
 
-v1.0 2022/12/04
-    - 支持接口：new, set_output, set_mode, nodelay, update, flush, send, recv, input, get_conv, peeksize, mtu, sndwnd, rcvwnd, get_waitsnd.
+0.03 2022/12/04
+    - 适配 KCP.pm的0.03版本
+
+0.04 2022/12/05
+    - 适配 KCP.pm的0.04版本：改用直接连接libkcp.a，而不是libkcp.so

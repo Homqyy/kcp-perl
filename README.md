@@ -38,23 +38,13 @@ perl-kcp
 
 ### 1.2 快速获取
 
-1. 安装`libkcp.so`和`ikcp.h`到系统中。
-    - 如果编译KCP项目源码，可参考以下命令：
-
-    ```
-    cmake -B ./build -S . -D BUILD_SHARED_LIBS=ON
-
-    cd build
-
-    make && make install
-    ```
-2.  通过`cpan`工具安装`kcp-perl`发行包：
+- 通过`cpan`工具安装`kcp-perl`发行包：
     - 安装最新版本：`cpan -i KCP`
-    - 安装指定版本：`cpan -i HOMQYY/KCP-0.03.tar.gz`
+    - 安装指定版本：`cpan -i HOMQYY/KCP-0.04.tar.gz`
 
 ### 1.3 在线帮助手册
 
-- [KCP-0.03](https://metacpan.org/release/HOMQYY/KCP-0.03/view/lib/KCP.pm)
+- [KCP使用手册](https://metacpan.org/release/HOMQYY/KCP-0.04/view/lib/KCP.pm)
 
 ---
 
@@ -94,6 +84,13 @@ cpan -i Test::More
 
 ## 3 构建
 
+- 如果是首次拉取代码，需要先用以下命令获取kcp源码：
+
+```
+git submodule init
+git submodule update
+```
+
 ### 3.1 一键构建
 
 ```
@@ -130,9 +127,9 @@ cpan -i Test::More
 
 ## 4 使用
 
-- 在成功安装之后，在`Shell`下执行以下命令查看帮助手册：`man KCP` 或 `perldoc KCP`；或则浏览在线说明：[KCP-0.03](https://metacpan.org/release/HOMQYY/KCP-0.03/view/lib/KCP.pm)
+- 在成功安装之后，在`Shell`下执行以下命令查看帮助手册：`man KCP` 或 `perldoc KCP`；或则浏览在线说明：[KCP使用手册](https://metacpan.org/release/HOMQYY/KCP-0.04/view/lib/KCP.pm)
 
-- 在安装完之后便可以正常使用`perl-kcp`了，比如：
+- 在安装完之后便可以正常使用`kcp-perl`了，比如：
 
     ```perl
     use KCP;

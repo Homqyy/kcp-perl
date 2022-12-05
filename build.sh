@@ -13,10 +13,6 @@ G_KCP_BUILD_DIR=$G_KCP_SRC_DIR/build
 
 G_PERL_KCP_DIR=$G_PROJECT_DIR/KCP
 
-# for environment of KCP
-export KCP_INC_DIR=$G_KCP_SRC_DIR
-export KCP_LIB=$G_KCP_BUILD_DIR/libkcp.so
-
 #################################### function
 
 function usage
@@ -37,7 +33,7 @@ function configure
 {
     echo "configure..."
 
-    cmake -B ${G_KCP_BUILD_DIR} -S ${G_KCP_SRC_DIR} -D BUILD_SHARED_LIBS=ON \
+    cmake -B ${G_KCP_BUILD_DIR} -S ${G_KCP_SRC_DIR} -DCMAKE_C_FLAGS="-fPIC" \
         || return 1
 
     # for kcp module
@@ -54,6 +50,10 @@ function compile
     echo "compile..."
 
     make -C ${G_KCP_BUILD_DIR} \
+        || return 1
+
+    # buildin library and header
+    cp $G_KCP_SRC_DIR/ikcp.h $G_KCP_BUILD_DIR/libkcp.a $G_PERL_KCP_DIR \
         || return 1
 
     make -C ${G_PERL_KCP_DIR}

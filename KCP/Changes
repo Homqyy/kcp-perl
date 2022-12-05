@@ -8,3 +8,6 @@ Revision history for Perl extension KCP.
 0.03  Sun Dec 04 11:51:00 2022
 	- repair bug: omit some files in MANIFEST
 	- repair bug: omit -lkcp
+0.04  Sun Dec 05 14:55:00 2022
+	- repair bug: compile error: don't found: ikcp.h
+	- 'link libkcp.a' replace 'link libkcp.so'
