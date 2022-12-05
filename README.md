@@ -15,25 +15,29 @@
 ### 1.1 目录结构
 
 ```
-perl-kcp
-├── build.sh                    # 构建脚本
-├── Changes                     # 版本说明
-├── Dockerfile.dev              # 开发容器的配置文件
-├── KCP                         # 扩展KCP的Perl模块
-│   ├── Changes
-│   ├── KCP.xs
-│   ├── lib
-│   │   ├── KCP
-│   │   │   └── Test.pm         # 专门用来测试perl-kcp的测试包
-│   │   └── KCP.pm              # perl-kcp包
-│   ├── Makefile.PL
-│   ├── MANIFEST
-│   ├── ppport.h
-│   ├── t                       # 测试脚本目录
-│   └── typemap
-├── kcp-src                     # 子模块，关联到 “skywind3000/kcp 项目
+kcp-perl
+├── build.sh        # 构建脚本
+├── Changes         # 版本说明
+├── .devcontainer   # VSCode编辑器配置
+├── Dockerfile.dev  # 开发容器的配置文件
+├── .gitignore
+├── .gitmodules
+├── KCP             # KCP的Perl扩展模块
+│   ├── Changes     # 针对 KCP.pm 的版本说明
+│   ├── KCP.xs      # 扩展源码
+│   ├── lib
+│   │   ├── KCP
+│   │   │   └── Test.pm
+│   │   └── KCP.pm
+│   ├── Makefile.PL
+│   ├── MANIFEST
+│   ├── ppport.h
+│   ├── README
+│   ├── t           # 测试脚本目录
+│   └── typemap
+├── kcp-src         # Git子模块：关联到 “skywind3000/kcp 项目
 ├── LICENSE
-└── README.md
+├── README.md
 ```
 
 ### 1.2 快速获取

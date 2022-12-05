@@ -25,7 +25,7 @@ DEPENDENCIES
 
 This module requires these other modules and libraries:
 
-  libkcp.so <https://github.com/skywind3000/kcp>
+  libkcp.a <https://github.com/skywind3000/kcp>
 
 COPYRIGHT AND LICENCE
 
