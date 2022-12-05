@@ -1,5 +1,7 @@
 # kcp-perl
 
+[README in English](https://github.com/Homqyy/kcp-perl/blob/main/README.en.md)
+
 [TOC]
 
 ## 1 概要
