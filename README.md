@@ -177,7 +177,7 @@ git submodule update
 
     $socket->recv($data, 65536, 0);
 
-    $kcp->input($data, 65536);
+    $kcp->input($data);
 
     ...
     ```

@@ -81,7 +81,7 @@ KCP - Perl extension for skywind3000/kcp
 
   $socket->recv($data, 65536, 0);
 
-  $kcp->input($data, 65536);
+  $kcp->input($data);
 
   ...
 

@@ -196,7 +196,7 @@ Next, to start building
 
     $socket->recv($data, 65536, 0);
 
-    $kcp->input($data, 65536);
+    $kcp->input($data);
 
     ...
     ```
